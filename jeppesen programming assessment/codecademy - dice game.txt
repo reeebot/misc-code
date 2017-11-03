@@ -1,0 +1,61 @@
+"""
+
+DICE GAME
+
+The program should do the following:
+
+Randomly roll a pair of dice
+Add the values of the roll
+Ask the user to guess a number
+Compare the user's guess to the total value
+Decide a winner (the user or the program)
+Inform the user who the winner is
+
+"""
+
+from random import randint
+from time import sleep
+
+
+print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n          Welcome to the dice game!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+
+print("\nToday we are playing with two dice, the maximum dice roll is: 12\n\n\n\n\n\n")
+sleep(1)
+
+def get_user_guess():
+	user_guess = raw_input("\n    Guess a number: ")
+	if str.isdigit(user_guess):
+		user_guess = int(user_guess)
+		return user_guess
+	else:
+		print("\n\n        That is not a number, try again.\n\n")
+		user_guess = int(get_user_guess())
+		return user_guess
+
+def roll_dice():
+	number_of_sides = 6
+	max_val = number_of_sides * 2
+	first_roll = randint(1, number_of_sides)
+	second_roll = randint(1, number_of_sides)
+	user_guess = int(get_user_guess())
+	if user_guess > max_val:
+		print("\n\n        Entered number is too high.  Try again.\n\n")
+		roll_dice()
+	else:
+		print("\n\n\n\n\n              r o l l i n g . . .\n\n\n\n\n")
+		sleep(2)
+		print "          The first roll is: %d" % first_roll
+		sleep(2)
+		print "          The second roll is: %d" % second_roll
+		sleep(2)
+		total_roll = first_roll + second_roll
+		print "\n               Total:  %d\n\n" % total_roll
+		sleep(2)
+		if user_guess > total_roll:
+			print "\n\n\n\n              YOU WIN!!!\n\n\n\n"
+			return
+		else:
+			print "\n\n\n\n          Sorry, you loose...\n\n\n\n"
+			return
+  
+roll_dice()

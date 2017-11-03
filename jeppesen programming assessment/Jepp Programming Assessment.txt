@@ -1,0 +1,47 @@
+Q1:
+
+def duplicates(n):
+    if len(set(n)) == len(n):  # compares length of original list to set() list, if the same then no duplicates
+        print False
+    elif len(set(n)) != len(n):  # if different then duplicates exist
+        print True
+
+
+
+
+
+
+Q2:
+
+# find nodes that don't have children
+
+def findLeaf(data):
+    for x in data.items():
+        if isinstance(x, dict):
+            findLeaf(x)
+    else:
+        return data
+
+
+
+
+
+
+Q3:
+
+# checks to see if social insurance number exists and returns false, or add person if it does not exist
+
+def add_person(self, name, socIns):
+    if self.socIns == socIns:
+        return False
+    else:
+        self.name = name
+        self.socIns = socIns
+        return True
+    
+
+# returns number of persons with requested shoe size
+
+def count_with_shoe_size(self, shoe_size):
+    for shoeSize in self:
+        print self.count(shoe_size)
